@@ -2,9 +2,8 @@
 
 namespace App\Twill\Capsules\Homepages\Scopes;
 
-use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 class MustBePublished extends Scope
 {
@@ -17,16 +16,8 @@ class MustBePublished extends Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        if ($this->isRunningOnFrontend() && $this->isPublishable($model)) {
+        if (is_running_on_frontend() && $this->isPublishable($model)) {
             $builder->where("{$model->getTable()}.published", true);
         }
-    }
-
-    function isRunningOnFrontend(): bool
-    {
-        return Str::startsWith(optional(request()->route())->getName(), [
-            'front.',
-            'api.',
-        ]);
     }
 }

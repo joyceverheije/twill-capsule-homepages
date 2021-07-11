@@ -7,26 +7,16 @@ class Crops
     // Modules
 
     const HOMEPAGE = [
-        'role-homepage-cover' => self::DESKTOP + self::MOBILE + self::SQUARE,
-
+        'role-homepage-cover' => self::DEFAULT + self::MOBILE,
         'role-homepage-slideshow' => self::ORIGINAL,
     ];
 
-    // Block editor
+    // Crops
 
-    const BLOCK_EDITOR = self::ALL_CROPS;
-
-    // Base crops definition
-
-    const ALL_CROPS = [
-        'role-all' =>
-            self::DESKTOP + self::MOBILE + self::SQUARE + self::ORIGINAL,
-    ];
-
-    const DESKTOP = [
-        'desktop' => [
+    const DEFAULT = [
+        'default' => [
             [
-                'name' => 'desktop',
+                'name' => 'default',
                 'ratio' => 16 / 9,
             ],
         ],
@@ -41,19 +31,10 @@ class Crops
         ],
     ];
 
-    const SQUARE = [
-        'square' => [
-            [
-                'name' => 'square',
-                'ratio' => 1,
-            ],
-        ],
-    ];
-
     const ORIGINAL = [
-        'original' => [
+        'default' => [
             [
-                'name' => 'original',
+                'name' => 'default',
                 'ratio' => null,
             ],
         ],

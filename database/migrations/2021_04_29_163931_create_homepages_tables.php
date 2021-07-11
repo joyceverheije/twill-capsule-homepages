@@ -10,11 +10,6 @@ class CreateHomepagesTables extends Migration
     {
         Schema::create('homepages', function (Blueprint $table) {
             createDefaultTableFields($table);
-
-            $table
-                ->integer('position')
-                ->unsigned()
-                ->nullable();
         });
 
         Schema::create('homepage_translations', function (Blueprint $table) {
